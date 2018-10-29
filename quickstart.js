@@ -15,8 +15,7 @@ const resourceClient = new Resource({
 // Lists current projects. This code was changed from promise to async and await on 10/19/2018 - Vishal Deshmukh
 const run = async () => {
   try {
-    const results = await resourceClient.getProjects()
-    const projects = results[0]
+    const [projects] = await resourceClient.getProjects()
     console.log('Projects:')
     projects.forEach(project => console.log(project.id))
   }
